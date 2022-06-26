@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+
+  git:
+    image: bitnami/git:2.36.1
+    volumes:
+      - git:/git
+    command: git clone "https://github.com/shephertz/App42PaaS-Java-MySQL-Sample.git" /git
+
+  maven:
+    image: maven:3.2.5-jdk-6
+    depends_on:
+      git:
+        condition: service_completed_successfully
+    volumes:
+      - git:/git
+    command: mvn -f /git/pom.xml clean package
+
+volumes:
+  git:
