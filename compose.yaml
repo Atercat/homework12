@@ -15,7 +15,7 @@ services:
         condition: service_completed_successfully
     volumes:
       - git:/git
-    command: mvn -f /git/pom.xml clean package
+    command: mvn -f /git/pom.xml package
 
 volumes:
   git:
