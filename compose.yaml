@@ -23,7 +23,8 @@ services:
       maven:
         condition: service_completed_successfully
     volumes:
-      - git/target/App42PaaS-Java-MySQL-Sample-0.0.1-SNAPSHOT.war:/usr/local/tomcat/webapps/test.war
+      - git:/git
+    command: cp /git/target/App42PaaS-Java-MySQL-Sample-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war
     ports:
       - "80:8080"
 
