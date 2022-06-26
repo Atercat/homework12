@@ -17,5 +17,15 @@ services:
       - git:/git
     command: mvn -f /git/pom.xml package
 
+  tomcat:
+    image: tomcat:7-jre7-alpine
+    depends_on:
+      maven:
+        condition: service_completed_successfully
+    volumes:
+      - git/target/App42PaaS-Java-MySQL-Sample-0.0.1-SNAPSHOT.war:/usr/local/tomcat/webapps/test.war
+    ports:
+      - "80:8080"
+
 volumes:
   git:
