@@ -41,11 +41,7 @@ services:
       - MARIADB_ROOT_PASSWORD=password
     networks:
       - app42
-    command: >
-      mysql
-      --user root
-      -p$${MARIADB_ROOT_PASSWORD}
-      -e "CREATE DATABASE app42;"
+    command: -e "CREATE DATABASE app42;"
 
 volumes:
   git:
