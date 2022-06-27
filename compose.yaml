@@ -15,7 +15,6 @@ services:
         condition: service_completed_successfully
     volumes:
       - git:/git
-      - ./Config.properties:/git/WebContent/Config.properties
     command: mvn -f /git/pom.xml package
 
   tomcat:
@@ -26,6 +25,7 @@ services:
         condition: service_completed_successfully
     volumes:
       - git:/git
+      - ./Config.properties:/usr/local/tomcat/ROOT/Config.properties
     networks:
       - app42
     command: >
