@@ -42,11 +42,10 @@ services:
     networks:
       - app42
     command: >
-      /bin/bash -c "
       mysql
       --user root
-      -p${MARIADB_ROOT_PASSWORD}
-      -e 'CREATE DATABASE app42;'"
+      -p$${MARIADB_ROOT_PASSWORD}
+      -e "CREATE DATABASE app42;"
 
 volumes:
   git:
