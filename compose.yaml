@@ -6,7 +6,7 @@ services:
     image: bitnami/git:2.36.1
     volumes:
       - git:/git
-    command: git clone "https://github.com/shephertz/App42PaaS-Java-MySQL-Sample.git" /git
+    command: git clone "https://github.com/Atercat/App42PaaS-Java-MySQL-Sample.git" /git
 
   maven:
     image: maven:3-jdk-7-alpine
