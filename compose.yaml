@@ -39,9 +39,9 @@ services:
     restart: always
     environment:
       - MARIADB_ROOT_PASSWORD=password
+      - MARIADB_DATABASE=app42
     networks:
       - app42
-    command: -e "CREATE DATABASE app42;"
 
 volumes:
   git:
